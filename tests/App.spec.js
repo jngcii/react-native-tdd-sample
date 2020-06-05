@@ -4,21 +4,23 @@
 
 import "react-native";
 import React from "react";
-import { Text } from "react-native";
 import { shallow } from "enzyme";
 import App from "../src/App";
 
-describe("Jest", () => {
-  it("is it working?", () => {
-    const a = 1;
-    expect(a + 1).toBe(2);
-  })
-})
+describe("App", () => {
+  const wrapper = shallow(<App />);
 
-describe("Enzyme", () => {
-  it("is it working?", () => {
-    const txt = "hello";
-    const wrapper = shallow(<Text>{ txt }</Text>);
-    expect(wrapper.text()).toBe(txt)
+  it("is Text visible?", () => {
+    expect(wrapper.find("Text").contains("To Do List")).toBe(true);
+  });
+
+  it("is AddToDo visible?", () => {
+    const addToDo = wrapper.find("AddToDo");
+    expect(addToDo.length).toEqual(1);
+  });
+
+  it("is ToDoList visible?", () => {
+    const toDoList = wrapper.find("ToDoList");
+    expect(toDoList.length).toEqual(1);
   })
-})
+});
