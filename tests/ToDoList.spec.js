@@ -14,7 +14,7 @@ describe("Rendering", () => {
   beforeEach(() => {
     props = {
       items: [1, 2, 3].map(i => { 
-        return { item: `item${i}`, completed: false }
+        return { id: i, keyword: `item ${i}`, completed: false }
       })
     }
     wrapper = shallow(<ToDoList {...props} />);
@@ -25,6 +25,6 @@ describe("Rendering", () => {
   });
 
   it("is props delivered to FlatList correctly?", () => {
-    expect(wrapper.find(FlatList).prop('items')).toBe(props.items)
+    expect(wrapper.find(FlatList).prop('data')).toBe(props.items)
   })
 });

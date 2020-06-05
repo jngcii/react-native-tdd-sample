@@ -1,9 +1,10 @@
 import React from "react";
 import { FlatList } from "react-native";
+import ToDoItem from "./ToDoItem";
 
 function ToDoList(props) {
   return (
-    <FlatList {...props} />
+    <FlatList data={props.items} />
   );
 }
 
