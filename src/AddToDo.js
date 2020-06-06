@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { View, Button, TextInput } from "react-native";
 
-function AddToDo({ onAdded }) {
+function AddToDo({ onAdd }) {
   const [value, setValue] = useState("");
 
-  const _onAdded = function() {
-    onAdded(value);
+  const onAddItem = () => {
+    onAdd(value);
   }
 
   return (
     <View>
-      <TextInput value={value} onChangeText={setValue} />
-      <Button onPress={_onAdded} />
+      <TextInput testID="textInput" value={value} onChangeText={setValue} />
+      <Button testID="addButton" onPress={onAddItem} title="A" />
     </View>
   );
 }

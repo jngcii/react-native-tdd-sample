@@ -2,21 +2,21 @@ import React from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
 
 function ToDoItem({ item, onComplete, onDelete }) {
-  const onPressComplete = function() {
+  const onPressComplete = () => {
     onComplete(item.id);
-  }
+  };
 
-  const onPressDelete = function() {
+  const onPressDelete = () => {
     onDelete(item.id);
-  }
+  };
 
   return (
     <View style={item.completed ? styles.completed : styles.default}>
-      <Text></Text>
-      <Button onPress={onPressComplete}></Button>
-      <Button onPress={onPressDelete}></Button>
+      <Text testID={item.completed ? "completed" : "uncompleted"}>{item.keyword}</Text>
+      <Button testID="completeButton" title="B" onPress={onPressComplete} />
+      <Button testID="deleteButton" title="C" onPress={onPressDelete} />
     </View>
-  )
+  );
 }
 
 export const styles = StyleSheet.create({
@@ -26,6 +26,6 @@ export const styles = StyleSheet.create({
   completed: {
     backgroundColor: "red",
   }
-})
+});
 
 export default ToDoItem;

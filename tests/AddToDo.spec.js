@@ -31,7 +31,7 @@ describe("Interaction", () => {
 
   beforeEach(() => {
     props = {
-      onAdded: jest.fn(),
+      onAdd: jest.fn(),
     }
 
     wrapper = shallow(<AddToDo {...props} />);
@@ -40,8 +40,8 @@ describe("Interaction", () => {
     wrapper.find(Button).prop("onPress")();
   });
 
-  it("is the onAdded callback called with input text?", () => {
-    expect(props.onAdded).toHaveBeenCalledTimes(1);
-    expect(props.onAdded).toHaveBeenCalledWith(txt);
+  it("is the onAdd callback called with input text?", () => {
+    expect(props.onAdd).toHaveBeenCalledTimes(1);
+    expect(props.onAdd).toHaveBeenCalledWith(txt);
   })
 })

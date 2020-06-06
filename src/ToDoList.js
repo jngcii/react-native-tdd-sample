@@ -1,10 +1,25 @@
-import React from "react";
-import { FlatList } from "react-native";
-import ToDoItem from "./ToDoItem";
+import React from 'react';
+import { FlatList } from 'react-native';
+import ToDoItem from './ToDoItem';
 
-function ToDoList(props) {
+function ToDoList({ items, onComplete, onDelete }) {
+  const renderItem = ({ item }) => {
+    return (
+      <ToDoItem
+        item={item}
+        onComplete={onComplete}
+        onDelete={onDelete}
+      />
+    );
+  };
+
   return (
-    <FlatList data={props.items} />
+    <FlatList
+      testID="toDoList"
+      data={items}
+      renderItem={renderItem}
+      keyExtractor={item => item.id}
+    />
   );
 }
 
